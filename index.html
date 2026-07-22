@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Стань курьером в своём городе. Без опыта, без вложений. Свободный график, деньги сразу. Работаем по всему Казахстану.">
+<meta name="theme-color" content="#0D0D0D">
+<title>QAZ DELIVER — стань курьером в своём городе. От 25 000 ₸ уже сегодня</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+  --bg:#0D0D0D;--surface:#1A1A1A;--line:#2A2A2A;
+  --accent:#FFF000;--accent-2:#FFD600;--text:#F5F5F5;--muted:#8A8A8A;
+  --ease:cubic-bezier(.22,.61,.21,1);
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5;overflow-x:clip;position:relative}
+button,input{font:inherit;color:inherit}
+::selection{background:var(--accent);color:#0D0D0D}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1160px;margin:0 auto;padding-left:clamp(34px,9vw,130px);padding-right:clamp(20px,5vw,64px)}
+.wrap--c{padding-left:clamp(20px,6vw,64px)}
+section{position:relative;z-index:1;padding:clamp(60px,10vw,108px) 0}
+h2{font-size:clamp(30px,4.6vw,50px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;margin-bottom:clamp(26px,5vw,46px)}
+.ov{display:inline-block;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(255,240,0,.28);padding:6px 12px;border-radius:4px;margin-bottom:18px}
+
+/* ---------- header ---------- */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);border-bottom:1px solid #1F1F1F}
+.hwrap{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 clamp(16px,4vw,40px)}
+.logo{font-size:18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.logo b{color:var(--accent)}
+.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{background:none;border:none;min-width:48px;min-height:44px;padding:0 12px;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--muted);cursor:pointer;transition:color .2s,background .2s}
+.lang button.on{background:var(--accent);color:#0D0D0D}
+
+/* ---------- hero ---------- */
+#hero{padding:calc(56px + clamp(52px,9vw,96px)) 0 clamp(56px,9vw,90px);overflow:hidden}
+.badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(26,26,26,.6)}
+h1{font-size:clamp(38px,7.2vw,68px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1.04;margin:20px 0 22px;max-width:920px}
+.h1line{display:block;overflow:hidden;padding-bottom:.05em}
+.h1in{display:inline-block;transform:translateY(112%);transition:transform .7s var(--ease);transition-delay:var(--d,0s)}
+body.loaded .h1in{transform:translateY(0)}
+.money{white-space:nowrap}
+.sub{max-width:640px;color:#BDBDBD;font-size:clamp(15px,2vw,17px)}
+.cta-row{margin-top:30px}
+.micro{color:var(--muted);font-size:13px;margin-top:12px}
+.fadeup{opacity:0;transform:translateY(26px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--d,0s)}
+body.loaded .fadeup{opacity:1;transform:none}
+.btn-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0D0D0D;font-weight:900;font-size:16px;letter-spacing:.05em;text-transform:uppercase;border:none;border-radius:12px;padding:18px 30px;min-height:56px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 6px 24px rgba(255,240,0,.16)}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(255,240,0,.35)}
+.btn-cta:active{transform:scale(.98)}
+body.loaded #hero .btn-cta{animation:ctapulse 1.5s var(--ease) 1s 2}
+@keyframes ctapulse{50%{box-shadow:0 0 0 10px rgba(255,240,0,.14),0 6px 30px rgba(255,240,0,.4)}}
+.sticker{display:inline-block;margin-top:28px;background:var(--accent);color:#0D0D0D;font-weight:900;font-size:20px;padding:8px 14px;transform:rotate(-3deg);letter-spacing:.02em;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+@media(min-width:900px){.sticker{position:absolute;top:150px;right:clamp(24px,7vw,140px);margin:0;font-size:28px;padding:12px 18px;transform:rotate(7deg)}}
+
+/* ---------- ticker ---------- */
+.ticker{border-block:1px solid var(--line);background:#101010;overflow:hidden;padding:13px 0;position:relative;z-index:1}
+.tickrow{display:inline-flex;white-space:nowrap;will-change:transform;animation:tick 38s linear infinite}
+.tick-seg{font-weight:900;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- value cards ---------- */
+.cards{display:grid;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 28px;position:relative;overflow:hidden;transition:border-color .3s}
+.card:hover{border-color:#3A3A3A}
+.card h3{font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+.card p{color:#B9B9B9;font-size:15px;position:relative;z-index:1}
+.card--hot{border-left:3px solid var(--accent)}
+.card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity .35s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,240,0,.09),transparent 65%);pointer-events:none}
+@media(hover:hover) and (min-width:900px){.card:hover::after{opacity:1}}
+@media(min-width:900px){
+  .cards{grid-template-columns:repeat(12,1fr);gap:20px}
+  .card:nth-child(1){grid-column:1/8}
+  .card:nth-child(2){grid-column:5/13}
+  .card:nth-child(3){grid-column:2/10}
+}
+
+/* ---------- calculator ---------- */
+.calc-grid{display:grid;gap:26px}
+@media(min-width:960px){.calc-grid{grid-template-columns:1.1fr .9fr;align-items:start;gap:40px}}
+.tabs{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:5px}
+@media(min-width:560px){.tabs{grid-template-columns:repeat(4,1fr);gap:0}}
+.tab{position:relative;z-index:1;background:none;border:none;border-radius:9px;padding:10px 5px;min-height:56px;cursor:pointer;display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;transition:color .25s;color:var(--text)}
+.tab b{font-size:13px;font-weight:800;line-height:1.15;text-align:center}
+.tab em{font-style:normal;font-size:11.5px;color:var(--muted);transition:color .25s;white-space:nowrap}
+.tab.on{color:#0D0D0D}
+.tab.on em{color:rgba(13,13,13,.72)}
+.tab-ind{position:absolute;top:5px;left:5px;width:0;height:0;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-radius:9px;transition:left .3s var(--ease),top .3s var(--ease),width .3s var(--ease),height .3s var(--ease)}
+.ctl{margin-top:24px}
+.ctl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;font-size:14px;color:#CFCFCF}
+.ctl-top b{color:var(--accent);font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;height:44px;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--accent) var(--p,50%),var(--line) var(--p,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid #0D0D0D;box-shadow:0 0 0 1px var(--line),0 2px 10px rgba(0,0,0,.5);margin-top:-8px}
+input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:3px;background:var(--accent)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid #0D0D0D}
+.out{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 28px}
+.out-row+.out-row{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.out-l{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:6px}
+.out-v{font-size:clamp(32px,5.2vw,50px);font-weight:900;letter-spacing:-.02em;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.calc-note{margin-top:26px;color:#BDBDBD;font-size:14px;border-left:3px solid var(--accent);padding-left:14px;max-width:640px}
+
+/* ---------- referral multiplier ---------- */
+.ref-top{display:grid;gap:26px}
+@media(min-width:900px){.ref-top{grid-template-columns:1.02fr .98fr;align-items:center;gap:48px}}
+.ref-sub{color:#BDBDBD;font-size:clamp(15px,2vw,17px);max-width:600px}
+.ref-viz{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,4vw,30px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ref-viz svg{width:100%;max-width:360px;height:auto;display:block}
+.ref-cards{display:grid;gap:16px;margin-top:clamp(30px,5vw,44px)}
+@media(min-width:760px){.ref-cards{grid-template-columns:repeat(3,1fr);gap:18px}}
+.ref-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.ref-card:nth-child(2){border-top:3px solid var(--accent)}
+.ref-card h3{font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin-bottom:9px}
+.ref-card p{color:#B9B9B9;font-size:14.5px}
+.ref-plate{margin-top:clamp(26px,4vw,36px);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:clamp(20px,4vw,28px) clamp(20px,4vw,32px);font-weight:900;font-size:clamp(20px,3.6vw,32px);line-height:1.18;text-transform:uppercase;letter-spacing:-.01em}
+.ref-plate b{color:var(--accent)}
+.ref-cta-row{margin-top:28px}
+/* growing network */
+.net-link{fill:none;stroke:var(--accent);stroke-width:2;opacity:.5;stroke-linecap:round;transition:stroke-dashoffset .45s var(--ease),opacity .3s}
+.net-node{opacity:0;transform:scale(0);transform-box:fill-box;transform-origin:center;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .35s}
+.net-node.on{opacity:1;transform:scale(1)}
+.net-node .nbg{fill:#1A1A1A;stroke:var(--accent);stroke-width:2}
+.net-node .nfig{fill:var(--accent)}
+.net-node.nroot .nbg{fill:var(--accent);stroke:var(--accent)}
+.net-node.nroot .nfig{fill:#0D0D0D}
+.net-node.pulse .nbg{animation:npulse .7s var(--ease)}
+@keyframes npulse{0%{filter:drop-shadow(0 0 0 rgba(255,240,0,0))}45%{filter:drop-shadow(0 0 7px rgba(255,240,0,.85))}100%{filter:drop-shadow(0 0 0 rgba(255,240,0,0))}}
+
+/* ---------- kit ---------- */
+.kit-list{border-top:1px solid var(--line)}
+.kit-item{display:grid;gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
+@media(min-width:900px){.kit-item{grid-template-columns:340px 1fr;gap:30px;align-items:baseline}}
+.kit-item h3{font-size:18px;font-weight:800;text-transform:uppercase}
+.kit-item p{color:#B9B9B9;font-size:15px}
+.plate{display:inline-block;margin-top:32px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0D0D0D;font-weight:800;font-size:15px;padding:16px 20px;border-radius:6px;transform:rotate(-1deg);max-width:660px;box-shadow:0 12px 34px rgba(255,240,0,.14)}
+
+/* ---------- steps ---------- */
+.step{display:grid;grid-template-columns:auto 1fr;gap:10px 22px;padding:26px 0;border-top:1px solid var(--line);align-items:start}
+.step:last-of-type{border-bottom:1px solid var(--line)}
+.step-num{font-size:clamp(44px,7vw,72px);font-weight:900;line-height:.9;letter-spacing:-.03em;min-width:80px;color:#2E2E2E}
+@supports(-webkit-text-stroke:1px #000){.step-num{color:transparent;-webkit-text-stroke:1.5px rgba(255,240,0,.5)}}
+.step h3{font-size:clamp(18px,2.6vw,24px);font-weight:800;text-transform:uppercase;margin-bottom:6px}
+.step p{color:#B9B9B9;font-size:15px;max-width:580px}
+
+/* ---------- action ---------- */
+#action{text-align:center;padding:clamp(84px,14vw,150px) 0}
+#action::before{content:'';position:absolute;inset:0;background:radial-gradient(620px 320px at 50% 58%,rgba(255,240,0,.07),transparent 70%);pointer-events:none}
+.act-title{font-size:clamp(32px,6vw,62px);margin-bottom:clamp(28px,5vw,44px)}
+.btn-mega{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0D0D0D;border-radius:14px;padding:22px 32px;min-height:64px;font-weight:900;font-size:clamp(15px,2.4vw,20px);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 10px 40px rgba(255,240,0,.2);max-width:100%;text-align:center}
+.btn-mega:hover{transform:translateY(-3px);box-shadow:0 16px 54px rgba(255,240,0,.38)}
+.btn-mega:active{transform:scale(.98)}
+.warn{max-width:660px;margin:26px auto 0;text-align:left;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;color:#CFCFCF;font-size:14px}
+
+/* ---------- faq ---------- */
+#faq .wrap{max-width:860px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;padding:19px 0;text-align:left;font-size:clamp(16px,2.2vw,19px);font-weight:800;cursor:pointer;min-height:56px}
+.faq-q svg{flex:none;transition:transform .3s var(--ease)}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a-in{overflow:hidden;max-height:0;visibility:hidden;transition:max-height .35s var(--ease),visibility 0s .35s}
+.faq-item.open .faq-a-in{visibility:visible;transition:max-height .35s var(--ease),visibility 0s 0s}
+.faq-a p{color:#B9B9B9;font-size:15px;padding-bottom:20px;max-width:700px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:36px 0 112px;position:relative;z-index:1}
+@media(min-width:900px){footer{padding-bottom:48px}}
+.flogo{font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.flogo b{color:var(--accent)}
+footer p{color:var(--muted);font-size:13px;max-width:680px}
+
+/* ---------- sticky CTA (mobile) ---------- */
+#sticky{position:fixed;left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;min-height:54px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0D0D0D;font-size:16px;font-weight:900;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.5),0 4px 20px rgba(255,240,0,.25);transform:translateY(160%);transition:transform .35s var(--ease)}
+#sticky.show{transform:translateY(0)}
+@media(min-width:900px){#sticky{display:none}}
+
+/* ---------- GPS track ---------- */
+#track{position:absolute;top:0;left:0;z-index:0;pointer-events:none}
+#trkBase{fill:none;stroke:var(--line);stroke-width:2}
+#trkDraw{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round}
+@media(min-width:900px){#trkDraw{stroke-width:3;filter:drop-shadow(0 0 6px rgba(255,240,0,.55))}}
+.cp{fill:#151515;stroke:var(--line);stroke-width:2;transition:fill .5s,stroke .5s,stroke-width .5s}
+.cp.on{fill:var(--accent);stroke:rgba(255,240,0,.3);stroke-width:6}
+.dot-core{fill:var(--accent);stroke:#0D0D0D;stroke-width:2}
+.dot-pulse{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center}
+@media(min-width:900px){.dot-pulse{animation:dp 2s ease-out infinite}}
+@keyframes dp{0%{transform:scale(.4);opacity:.5}70%,100%{transform:scale(1.9);opacity:0}}
+
+/* ---------- shiny text ---------- */
+.shiny{background:linear-gradient(105deg,var(--accent) 0%,var(--accent-2) 38%,#FFF 50%,var(--accent) 62%,var(--accent) 100%) 0 0/220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3.4s linear infinite}
+.shiny-dark{background:linear-gradient(105deg,#0D0D0D 0%,#0D0D0D 40%,#6B6200 50%,#0D0D0D 60%,#0D0D0D 100%) 0 0/240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 2.8s linear infinite}
+@keyframes shine{from{background-position:120% 0}to{background-position:-120% 0}}
+
+/* ---------- scroll reveal ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .55s var(--ease),transform .55s var(--ease);transition-delay:var(--d,0s)}
+.rev.in{opacity:1;transform:none}
+
+/* ---------- custom cursor / spark / particles (desktop only) ---------- */
+html.fx-cursor,html.fx-cursor *{cursor:none!important}
+#cur{position:fixed;left:0;top:0;z-index:1000;pointer-events:none}
+#cur i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(255,240,0,.9);transition:transform .2s var(--ease)}
+#cur u{position:absolute;left:-17px;top:-17px;width:34px;height:34px;border:1.5px solid rgba(255,240,0,.65);border-radius:50%;transform:scale(.4);opacity:0;transition:transform .25s var(--ease),opacity .25s}
+#cur.aim i{transform:scale(.5)}
+#cur.aim u{transform:scale(1);opacity:1}
+#curGlow{position:fixed;left:0;top:0;z-index:999;pointer-events:none}
+#curGlow i{position:absolute;left:-22px;top:-22px;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle,rgba(255,240,0,.32),transparent 70%)}
+.spark{position:fixed;z-index:1001;pointer-events:none}
+.spark i{position:absolute;width:6px;height:6px;border-radius:1px;background:var(--accent);animation:sparkfly .5s var(--ease) forwards}
+@keyframes sparkfly{from{transform:translate(0,0) rotate(0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(120deg) scale(.2);opacity:0}}
+.pcl{position:absolute;border-radius:50%;background:rgba(255,240,0,.4);pointer-events:none;animation:pfloat linear infinite}
+@keyframes pfloat{0%{transform:translateY(30px);opacity:0}12%{opacity:.6}85%{opacity:.15}100%{transform:translateY(-130px);opacity:0}}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .h1in{transform:none!important}
+  .fadeup,.rev{opacity:1!important;transform:none!important}
+}
+</style>
+<noscript><style>.h1in{transform:none}.fadeup,.rev{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<svg id="track" aria-hidden="true" width="0" height="0">
+  <path id="trkBase" d=""/>
+  <path id="trkDraw" d=""/>
+  <g id="trkCps"></g>
+  <g id="trkDot"><circle class="dot-pulse" r="10"/><circle class="dot-core" r="5"/></g>
+</svg>
+
+<header id="hdr">
+  <div class="hwrap">
+    <div class="logo">QAZ DELIVER<b>.</b></div>
+    <div class="lang" role="group" aria-label="Язык / Тіл">
+      <button type="button" data-lang="ru" class="on" aria-pressed="true">RU</button>
+      <button type="button" data-lang="kz" aria-pressed="false">KZ</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="badge fadeup" style="--d:0s"><span data-i18n="badge">⚡ Работаем по всему Казахстану</span></div>
+    <h1>
+      <span class="h1line"><span class="h1in" style="--d:.08s" data-i18n="h1a">Твой телефон + пара часов =</span></span>
+      <span class="h1line"><span class="h1in" style="--d:.22s"><span data-i18n="h1b">от</span> <b class="money shiny"><span id="heroNum">25 000</span>&nbsp;₸</b> <span id="h1c" data-i18n="h1c">уже сегодня</span></span></span>
+    </h1>
+    <p class="sub fadeup" style="--d:.42s" data-i18n="sub">Стань курьером в своём городе. Без опыта. Без вложений в товар. Пеший, на велике, электровеле, мото или авто — выбираешь сам. Свободный график: работаешь когда хочешь и сколько хочешь. Термосумку и гайд выдаём на старте.</p>
+    <div class="cta-row fadeup" style="--d:.58s">
+      <button type="button" class="btn-cta" id="heroCta"><span class="shiny-dark" data-i18n="heroCta">Начать зарабатывать</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="micro" data-i18n="micro">1 минута на регистрацию — и ты в деле</p>
+    </div>
+    <div class="sticker fadeup" style="--d:.7s">18+</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="tickrow">
+    <span class="tick-seg">БЕЗ ОПЫТА ⚡ СВОБОДНЫЙ ГРАФИК ⚡ ДЕНЬГИ СРАЗУ ⚡ САМ СЕБЕ БОСС ⚡ ВЕСЬ КАЗАХСТАН ⚡ БЕЗ ОПЫТА ⚡ СВОБОДНЫЙ ГРАФИК ⚡ ДЕНЬГИ СРАЗУ ⚡ САМ СЕБЕ БОСС ⚡ ВЕСЬ КАЗАХСТАН ⚡&nbsp;</span>
+    <span class="tick-seg">БЕЗ ОПЫТА ⚡ СВОБОДНЫЙ ГРАФИК ⚡ ДЕНЬГИ СРАЗУ ⚡ САМ СЕБЕ БОСС ⚡ ВЕСЬ КАЗАХСТАН ⚡ БЕЗ ОПЫТА ⚡ СВОБОДНЫЙ ГРАФИК ⚡ ДЕНЬГИ СРАЗУ ⚡ САМ СЕБЕ БОСС ⚡ ВЕСЬ КАЗАХСТАН ⚡&nbsp;</span>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="wrap">
+    <span class="ov rev" data-i18n="ovValues">Факты, а не обещания</span>
+    <div class="cards">
+      <article class="card rev" style="--d:0s">
+        <h3 data-i18n="v1t">🕐 Свободный график</h3>
+        <p data-i18n="v1d">Хочешь 2 часа подработки, хочешь 10 — сам себе босс. Никто не стоит над душой.</p>
+      </article>
+      <article class="card card--hot rev" style="--d:.1s">
+        <h3 data-i18n="v2t">⚡ Топовый электровел</h3>
+        <p data-i18n="v2d">Едет сам, ноги не устают, скорость выше = больше заказов = больше денег. Аренда становится БЕСПЛАТНОЙ при выполнении цели по заказам.</p>
+      </article>
+      <article class="card rev" style="--d:.2s">
+        <h3 data-i18n="v3t">💸 Деньги сразу</h3>
+        <p data-i18n="v3d">Стабильные выплаты без задержек. При активной работе реально до 750 000 ₸ в месяц.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calc">
+  <div class="wrap">
+    <h2 class="rev" data-i18n="calcTitle">Посчитай свой доход</h2>
+    <div class="calc-grid">
+      <div class="rev" style="--d:.05s">
+        <div class="tabs" id="tabs">
+          <span class="tab-ind" id="tabInd"></span>
+          <button type="button" class="tab" data-rate="1500" aria-pressed="false"><b data-i18n="tab1">Пеший / Вело</b><em data-i18n="rate1">1 500 ₸/ч</em></button>
+          <button type="button" class="tab on" data-rate="2500" aria-pressed="true"><b data-i18n="tab2">Электровело</b><em data-i18n="rate2">2 500 ₸/ч</em></button>
+          <button type="button" class="tab" data-rate="3500" aria-pressed="false"><b data-i18n="tab3">Авто</b><em data-i18n="rate3">3 500 ₸/ч</em></button>
+          <button type="button" class="tab" data-rate="4000" aria-pressed="false"><b data-i18n="tab4">Мото</b><em data-i18n="rate4">4 000 ₸/ч</em></button>
+        </div>
+        <div class="ctl">
+          <div class="ctl-top"><span data-i18n="lHours">Часов в день</span><b><span id="vHours">8</span> <span data-i18n="uH">ч</span></b></div>
+          <input type="range" id="rHours" min="1" max="12" value="8" aria-label="Часов в день">
+        </div>
+        <div class="ctl">
+          <div class="ctl-top"><span data-i18n="lDays">Дней в неделю</span><b><span id="vDays">6</span> <span data-i18n="uD">дн</span></b></div>
+          <input type="range" id="rDays" min="1" max="7" value="6" aria-label="Дней в неделю">
+        </div>
+      </div>
+      <div class="out rev" style="--d:.12s">
+        <div class="out-row">
+          <span class="out-l" data-i18n="outW">В неделю:</span>
+          <span class="out-v shiny" id="outWeek">~120 000 ₸</span>
+        </div>
+        <div class="out-row">
+          <span class="out-l" data-i18n="outM">В месяц:</span>
+          <span class="out-v shiny" id="outMonth">~519 600 ₸</span>
+        </div>
+      </div>
+    </div>
+    <p class="calc-note rev" data-i18n="calcNote">Ребята на электровелах и мото по всему Казахстану спокойно делают эти цифры. Всё зависит только от твоего желания.</p>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<section id="ref">
+  <div class="wrap">
+    <span class="ov rev" data-i18n="refLabel">Множитель дохода</span>
+    <div class="ref-top">
+      <div class="rev">
+        <h2 data-i18n="refTitle">Приводи своих — получай кратно больше</h2>
+        <p class="ref-sub" data-i18n="refSub">Катать заказы — это база. Реальный множитель — рефералка. Приглашаешь друга → он выходит на линию → тебе капает от 50 000 ₸ за каждого. А когда твой друг приводит своего друга — ты получаешь ещё и за него. Твоя сеть работает на тебя, даже когда ты отдыхаешь.</p>
+      </div>
+      <div class="ref-viz rev" style="--d:.08s">
+        <svg id="net" viewBox="0 0 300 240" role="img" aria-label="Растущая реферальная сеть">
+          <g id="netLinks"></g>
+          <g id="netNodes"></g>
+        </svg>
+      </div>
+    </div>
+    <div class="ref-cards">
+      <div class="ref-card rev">
+        <h3 data-i18n="rc1t">💰 От 50 000 ₸ за друга</h3>
+        <p data-i18n="rc1d">За каждого приглашённого, кто вышел на линию.</p>
+      </div>
+      <div class="ref-card rev" style="--d:.08s">
+        <h3 data-i18n="rc2t">🔗 Платим за друзей твоих друзей</h3>
+        <p data-i18n="rc2d">Твой реферал привёл своего — тебе капает и за него. Сеть растёт — доход множится.</p>
+      </div>
+      <div class="ref-card rev" style="--d:.16s">
+        <h3 data-i18n="rc3t">🚀 Поверх твоих заказов</h3>
+        <p data-i18n="rc3d">Это дополнительный доход сверху того, что ты зарабатываешь курьером. Потолок — только в тебе.</p>
+      </div>
+    </div>
+    <div class="ref-plate rev" data-i18n="refPlate" data-i18n-html>10 <b>друзей</b> = <b>+500 000&nbsp;₸</b> сверху. И это только первый круг.</div>
+    <div class="ref-cta-row rev" style="--d:.06s">
+      <button type="button" class="btn-cta" id="refCta"><span class="shiny-dark" data-i18n="refCta">Начать и приглашать</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- KIT -->
+<section id="kit">
+  <div class="wrap">
+    <h2 class="rev" data-i18n="kitTitle">Что получаешь на старте</h2>
+    <div class="kit-list">
+      <div class="kit-item rev">
+        <h3 data-i18n="k1t">🎒 Термосумку</h3>
+        <p data-i18n="k1d">Выдаём на старте. С ней ты официальный курьер — заказы твои.</p>
+      </div>
+      <div class="kit-item rev" style="--d:.08s">
+        <h3 data-i18n="k2t">🗺 Гайд для старта</h3>
+        <p data-i18n="k2d">Всё по делу: как быстро выйти на первые деньги и не тупить в первый день. Открывается сразу после получения термосумки.</p>
+      </div>
+      <div class="kit-item rev" style="--d:.16s">
+        <h3 data-i18n="k3t">🤝 Поддержку на старте</h3>
+        <p data-i18n="k3d">Подскажем, поможем, не бросим на первых сменах.</p>
+      </div>
+    </div>
+    <div class="plate rev" data-i18n="plate">Хочешь кратно больше и быстрее? Пересядь на мощный электровел — при выполнении цели по заказам аренда становится бесплатной.</div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="steps">
+  <div class="wrap">
+    <h2 class="rev" data-i18n="stepsTitle">Как начать</h2>
+    <div class="step rev">
+      <div class="step-num" aria-hidden="true">01</div>
+      <div><h3 data-i18n="s1t">Скачай приложение</h3><p data-i18n="s1d">Нажми кнопку ниже и установи официальное приложение Яндекс Про.</p></div>
+    </div>
+    <div class="step rev" style="--d:.08s">
+      <div class="step-num" aria-hidden="true">02</div>
+      <div><h3 data-i18n="s2t">Зарегистрируйся</h3><p data-i18n="s2d">Пройди регистрацию за 2 минуты (строго 18+).</p></div>
+    </div>
+    <div class="step rev" style="--d:.16s">
+      <div class="step-num" aria-hidden="true">03</div>
+      <div><h3 data-i18n="s3t">Забери термосумку и стартуй</h3><p data-i18n="s3d">Приходи в офис парка в своём городе, забирай термосумку и руби кэш.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION -->
+<section id="action">
+  <div class="wrap wrap--c">
+    <h2 class="act-title rev" data-i18n="actTitle">Хватит листать. Пора зарабатывать.</h2>
+    <a class="btn-mega rev" style="--d:.1s" href="https://ya.cc/t/f8nes3RB9bXRo7" target="_blank" rel="noopener">
+      <span class="shiny-dark" data-i18n="actBtn">СКАЧАТЬ ЯНДЕКС ПРО И ЗАРЕГАТЬСЯ</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13M6 10l6 6 6-6M4 21h16"/></svg>
+    </a>
+    <p class="warn rev" style="--d:.18s" data-i18n="warn">⚠️ ВАЖНО: переходи строго по этой кнопке — иначе система не закрепит тебя за нашим парком, и бонусы на старте сгорят.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <h2 class="rev" data-i18n="faqTitle">Вопросы? Отвечаем прямо</h2>
+    <div id="faqList">
+      <div class="faq-item rev">
+        <button type="button" class="faq-q" aria-expanded="false"><span data-i18n="q1">Нужен ли опыт?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF000" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in"><p data-i18n="a1">Нет. Онлайн-обучение — 10 минут, и ты готов.</p></div></div>
+      </div>
+      <div class="faq-item rev">
+        <button type="button" class="faq-q" aria-expanded="false"><span data-i18n="q2">Нужен свой транспорт?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF000" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in"><p data-i18n="a2">Нет. Начать можно пешком. Хочешь больше и быстрее — пересядь на электровел, аренда становится бесплатной при выполнении цели по заказам.</p></div></div>
+      </div>
+      <div class="faq-item rev">
+        <button type="button" class="faq-q" aria-expanded="false"><span data-i18n="q3">Как получить гайд?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF000" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in"><p data-i18n="a3">Забери термосумку в офисе — гайд откроется тебе сразу после.</p></div></div>
+      </div>
+      <div class="faq-item rev">
+        <button type="button" class="faq-q" aria-expanded="false"><span data-i18n="q4">Можно ли работать с 17 лет?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF000" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in"><p data-i18n="a4">Официально регистрация строго с 18 по удостоверению личности. Если скоро исполнится 18 — готовь документы заранее, чтобы стартовать в день рождения.</p></div></div>
+      </div>
+      <div class="faq-item rev">
+        <button type="button" class="faq-q" aria-expanded="false"><span data-i18n="q5">Сколько реально заработать?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF000" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-in"><p data-i18n="a5">При активной работе — до 750 000 ₸ в месяц. Новичок в первую неделю спокойно поднимает первые деньги. Всё зависит от тебя.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo">QAZ DELIVER<b>.</b></div>
+    <p data-i18n="disc">Мы — независимый партнёр реферальной программы Яндекс Про. Сайт не является официальным сайтом компании Yandex.</p>
+  </div>
+</footer>
+
+<button type="button" id="sticky"><span data-i18n="sticky">Начать зарабатывать ⚡</span></button>
+
+<script>
+(function(){
+'use strict';
+
+/* ============ environment flags ============ */
+var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var DESK = window.matchMedia('(pointer:fine)').matches && window.innerWidth >= 900;
+
+/* ============ i18n ============ */
+var t = {
+  ru: {
+    badge:'⚡ Работаем по всему Казахстану',
+    h1a:'Твой телефон + пара часов =', h1b:'от', h1c:'уже сегодня',
+    sub:'Стань курьером в своём городе. Без опыта. Без вложений в товар. Пеший, на велике, электровеле, мото или авто — выбираешь сам. Свободный график: работаешь когда хочешь и сколько хочешь. Термосумку и гайд выдаём на старте.',
+    heroCta:'Начать зарабатывать',
+    micro:'1 минута на регистрацию — и ты в деле',
+    ticker:'БЕЗ ОПЫТА ⚡ СВОБОДНЫЙ ГРАФИК ⚡ ДЕНЬГИ СРАЗУ ⚡ САМ СЕБЕ БОСС ⚡ ВЕСЬ КАЗАХСТАН ⚡ ',
+    ovValues:'Факты, а не обещания',
+    v1t:'🕐 Свободный график', v1d:'Хочешь 2 часа подработки, хочешь 10 — сам себе босс. Никто не стоит над душой.',
+    v2t:'⚡ Топовый электровел', v2d:'Едет сам, ноги не устают, скорость выше = больше заказов = больше денег. Аренда становится БЕСПЛАТНОЙ при выполнении цели по заказам.',
+    v3t:'💸 Деньги сразу', v3d:'Стабильные выплаты без задержек. При активной работе реально до 750 000 ₸ в месяц.',
+    calcTitle:'Посчитай свой доход',
+    tab1:'Пеший / Вело', tab2:'Электровело', tab3:'Авто', tab4:'Мото',
+    rate1:'1 500 ₸/ч', rate2:'2 500 ₸/ч', rate3:'3 500 ₸/ч', rate4:'4 000 ₸/ч',
+    lHours:'Часов в день', lDays:'Дней в неделю', uH:'ч', uD:'дн',
+    outW:'В неделю:', outM:'В месяц:',
+    calcNote:'Ребята на электровелах и мото по всему Казахстану спокойно делают эти цифры. Всё зависит только от твоего желания.',
+    refLabel:'Множитель дохода',
+    refTitle:'Приводи своих — получай кратно больше',
+    refSub:'Катать заказы — это база. Реальный множитель — рефералка. Приглашаешь друга → он выходит на линию → тебе капает от 50 000 ₸ за каждого. А когда твой друг приводит своего друга — ты получаешь ещё и за него. Твоя сеть работает на тебя, даже когда ты отдыхаешь.',
+    rc1t:'💰 От 50 000 ₸ за друга', rc1d:'За каждого приглашённого, кто вышел на линию.',
+    rc2t:'🔗 Платим за друзей твоих друзей', rc2d:'Твой реферал привёл своего — тебе капает и за него. Сеть растёт — доход множится.',
+    rc3t:'🚀 Поверх твоих заказов', rc3d:'Это дополнительный доход сверху того, что ты зарабатываешь курьером. Потолок — только в тебе.',
+    refPlate:'10 <b>друзей</b> = <b>+500 000&nbsp;₸</b> сверху. И это только первый круг.',
+    refCta:'Начать и приглашать',
+    netAria:'Растущая реферальная сеть: ты приводишь друзей, а они — своих',
+    kitTitle:'Что получаешь на старте',
+    k1t:'🎒 Термосумку', k1d:'Выдаём на старте. С ней ты официальный курьер — заказы твои.',
+    k2t:'🗺 Гайд для старта', k2d:'Всё по делу: как быстро выйти на первые деньги и не тупить в первый день. Открывается сразу после получения термосумки.',
+    k3t:'🤝 Поддержку на старте', k3d:'Подскажем, поможем, не бросим на первых сменах.',
+    plate:'Хочешь кратно больше и быстрее? Пересядь на мощный электровел — при выполнении цели по заказам аренда становится бесплатной.',
+    stepsTitle:'Как начать',
+    s1t:'Скачай приложение', s1d:'Нажми кнопку ниже и установи официальное приложение Яндекс Про.',
+    s2t:'Зарегистрируйся', s2d:'Пройди регистрацию за 2 минуты (строго 18+).',
+    s3t:'Забери термосумку и стартуй', s3d:'Приходи в офис парка в своём городе, забирай термосумку и руби кэш.',
+    actTitle:'Хватит листать. Пора зарабатывать.',
+    actBtn:'СКАЧАТЬ ЯНДЕКС ПРО И ЗАРЕГАТЬСЯ',
+    warn:'⚠️ ВАЖНО: переходи строго по этой кнопке — иначе система не закрепит тебя за нашим парком, и бонусы на старте сгорят.',
+    faqTitle:'Вопросы? Отвечаем прямо',
+    q1:'Нужен ли опыт?', a1:'Нет. Онлайн-обучение — 10 минут, и ты готов.',
+    q2:'Нужен свой транспорт?', a2:'Нет. Начать можно пешком. Хочешь больше и быстрее — пересядь на электровел, аренда становится бесплатной при выполнении цели по заказам.',
+    q3:'Как получить гайд?', a3:'Забери термосумку в офисе — гайд откроется тебе сразу после.',
+    q4:'Можно ли работать с 17 лет?', a4:'Официально регистрация строго с 18 по удостоверению личности. Если скоро исполнится 18 — готовь документы заранее, чтобы стартовать в день рождения.',
+    q5:'Сколько реально заработать?', a5:'При активной работе — до 750 000 ₸ в месяц. Новичок в первую неделю спокойно поднимает первые деньги. Всё зависит от тебя.',
+    sticky:'Начать зарабатывать ⚡',
+    disc:'Мы — независимый партнёр реферальной программы Яндекс Про. Сайт не является официальным сайтом компании Yandex.'
+  },
+  kz: {
+    badge:'⚡ Қазақстан бойынша жұмыс істейміз',
+    h1a:'Сенің телефоның + бірнеше сағат =', h1b:'бүгіннен бастап', h1c:'',
+    sub:'Өз қалаңда курьер бол. Тәжірибесіз. Тауарға салым жоқ. Жаяу, велосипедпен, электр великпен, мотоциклмен немесе автокөлікпен — өзің таңдайсың. Еркін график: қашан қалайсың, сонша істейсің. Термосөмке мен нұсқаулықты старта береміз.',
+    heroCta:'Табысты бастау',
+    micro:'Тіркелуге 1 минут — сен істесің',
+    ticker:'ТӘЖІРИБЕСІЗ ⚡ ЕРКІН ГРАФИК ⚡ АҚША ТЕЗ АРАДА ⚡ ӨЗІҢЕ ӨЗІҢ БАССЫҢ ⚡ БҮКІЛ ҚАЗАҚСТАН ⚡ ',
+    ovValues:'Уәде емес — факт',
+    v1t:'🕐 Еркін график', v1d:'Қаласаң 2 сағат, қаласаң 10 — өзің бассың. Ешкім үстіңде тұрмайды.',
+    v2t:'⚡ Топ электр велик', v2d:'Өзі жүреді, аяқ талмайды, жылдамдық жоғары = көп тапсырыс = көп ақша. Тапсырыс бойынша мақсатты орындасаң — жалдау ТЕГІН болады.',
+    v3t:'💸 Ақша тез арада', v3d:'Тұрақты төлемдер, кідіріссіз. Белсенді жұмыста айына 750 000 ₸-ге дейін нақты.',
+    calcTitle:'Табысыңды есепте',
+    tab1:'Жаяу / Велик', tab2:'Электр велик', tab3:'Автокөлік', tab4:'Мото',
+    rate1:'1 500 ₸/сағ', rate2:'2 500 ₸/сағ', rate3:'3 500 ₸/сағ', rate4:'4 000 ₸/сағ',
+    lHours:'Күніне сағат', lDays:'Аптасына күн', uH:'сағ', uD:'күн',
+    outW:'Аптасына:', outM:'Айына:',
+    calcNote:'Қазақстан бойынша электр велик пен мото мінген пацандар бұл цифрларды оңай жасайды. Бәрі тек өз қалауыңа байланысты.',
+    refLabel:'Табыс еселеуіші',
+    refTitle:'Досыңды әкел — еселеп көп тап',
+    refSub:'Тапсырыс тебу — бұл база. Нағыз еселеуіш — реферал. Досыңды шақырасың → ол линияға шығады → әрқайсысы үшін саған 50 000 ₸-ден түседі. Ал досың өз досын әкелгенде — сен ол үшін де аласың. Сенің желің сен демалғанда да жұмыс істейді.',
+    rc1t:'💰 Дос үшін 50 000 ₸-ден', rc1d:'Линияға шыққан әр шақырылған адам үшін.',
+    rc2t:'🔗 Досыңның достары үшін де төлейміз', rc2d:'Сенің рефералың өзінікін әкелді — саған ол үшін де түседі. Желі өседі — табыс еселенеді.',
+    rc3t:'🚀 Тапсырыстарыңның үстіне', rc3d:'Бұл курьер ретінде тапқаныңның үстіне қосымша табыс. Шек — тек өзіңде.',
+    refPlate:'10 <b>дос</b> = үстіне <b>+500 000&nbsp;₸</b>. Бұл әлі бірінші шеңбер ғана.',
+    refCta:'Бастап, шақыру',
+    netAria:'Өсіп келе жатқан реферал желісі: сен достарыңды әкелесің, олар — өздерінің достарын',
+    kitTitle:'Старта не аласың',
+    k1t:'🎒 Термосөмке', k1d:'Старта береміз. Онымен сен ресми курьерсің — тапсырыстар сенікі.',
+    k2t:'🗺 Старт нұсқаулығы', k2d:'Бәрі нақты: алғашқы ақшаны қалай тез табуға болады және бірінші күні қатып қалмайсың. Термосөмкені алғаннан кейін бірден ашылады.',
+    k3t:'🤝 Старта қолдау', k3d:'Кеңес береміз, көмектесеміз, алғашқы сменаларда тастамаймыз.',
+    plate:'Еселеп көп әрі жылдам қалайсың ба? Қуатты электр великке отыр — тапсырыс бойынша мақсатты орындасаң, жалдау тегін болады.',
+    stepsTitle:'Қалай бастау керек',
+    s1t:'Қосымшаны жүкте', s1d:'Төмендегі түймені бас та ресми Яндекс Про қосымшасын орнат.',
+    s2t:'Тіркел', s2d:'2 минутта тіркеуден өт (тек 18+).',
+    s3t:'Термосөмкені ал да баста', s3d:'Өз қалаңдағы парк кеңсесіне кел, термосөмкені ал да, кэш соғуды баста.',
+    actTitle:'Парақтауды қой. Табыс кезі келді.',
+    actBtn:'ЯНДЕКС ПРО ЖҮКТЕУ ЖӘНЕ ТІРКЕЛУ',
+    warn:'⚠️ МАҢЫЗДЫ: тек осы түйме арқылы өт — әйтпесе жүйе сені біздің паркқа тіркемейді, стартадағы бонустар жанып кетеді.',
+    faqTitle:'Сұрақтар? Тікелей жауап береміз',
+    q1:'Тәжірибе керек пе?', a1:'Жоқ. Онлайн-оқу — 10 минут, дайынсың.',
+    q2:'Жеке транспорт керек пе?', a2:'Жоқ. Жаяу бастауға болады. Көп әрі жылдам қаласаң — электр великке отыр, тапсырыс бойынша мақсатты орындасаң жалдау тегін.',
+    q3:'Нұсқаулықты қалай аламын?', a3:'Кеңседен термосөмкені ал — нұсқаулық бірден ашылады.',
+    q4:'17 жастан жұмыс істеуге бола ма?', a4:'Ресми тіркеу тек 18 жастан, жеке куәлік бойынша. Жақында 18 толса — құжаттарды алдын ала дайында.',
+    q5:'Нақты қанша табуға болады?', a5:'Белсенді жұмыста — айына 750 000 ₸-ге дейін. Жаңадан келген алғашқы аптада-ақ алғашқы ақшасын алады. Бәрі өзіңе байланысты.',
+    sticky:'Бастау ⚡',
+    disc:'Біз — Яндекс Про реферал бағдарламасының тәуелсіз серіктесіміз. Сайт Yandex компаниясының ресми сайты емес.'
+  }
+};
+
+var lang = 'ru';
+try { var saved = localStorage.getItem('qd_lang'); if (saved === 'kz' || saved === 'ru') lang = saved; } catch(e){}
+
+function setLang(l){
+  lang = l;
+  try { localStorage.setItem('qd_lang', l); } catch(e){}
+  document.documentElement.lang = (l === 'kz') ? 'kk' : 'ru';
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++){
+    var key = els[i].getAttribute('data-i18n');
+    if (t[l][key] === undefined) continue;
+    if (els[i].hasAttribute('data-i18n-html')) els[i].innerHTML = t[l][key];
+    else els[i].textContent = t[l][key];
+  }
+  var segs = document.querySelectorAll('.tick-seg');
+  for (var j = 0; j < segs.length; j++){
+    segs[j].textContent = (t[l].ticker + t[l].ticker + ' ');
+  }
+  var h1c = document.getElementById('h1c');
+  h1c.style.display = t[l].h1c ? '' : 'none';
+  var net = document.getElementById('net');
+  if (net && t[l].netAria) net.setAttribute('aria-label', t[l].netAria);
+  var lbs = document.querySelectorAll('.lang button');
+  for (var k = 0; k < lbs.length; k++){
+    var on = lbs[k].getAttribute('data-lang') === l;
+    lbs[k].classList.toggle('on', on);
+    lbs[k].setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  requestAnimationFrame(function(){ positionTabInd(); refreshOpenFaq(); rebuildTrack(); });
+}
+
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ if (b.getAttribute('data-lang') !== lang) setLang(b.getAttribute('data-lang')); });
+});
+
+/* ============ number formatting + count-up ============ */
+function sp(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+function countUp(el, to, fmt, dur){
+  dur = dur || 650;
+  var from = (el._v !== undefined) ? el._v : 0;
+  if (RM || from === to){ el._v = to; el.textContent = fmt(to); return; }
+  if (el._raf) cancelAnimationFrame(el._raf);
+  var t0 = performance.now();
+  function step(now){
+    var p = Math.min(1, (now - t0) / dur);
+    p = 1 - Math.pow(1 - p, 3);
+    var v = Math.round(from + (to - from) * p);
+    el.textContent = fmt(v);
+    if (p < 1) el._raf = requestAnimationFrame(step);
+    else { el._v = to; el._raf = null; }
+  }
+  el._raf = requestAnimationFrame(step);
+}
+
+/* ============ calculator ============ */
+var rate = 2500, hours = 8, days = 6;
+var outWeek = document.getElementById('outWeek');
+var outMonth = document.getElementById('outMonth');
+var fmtOut = function(v){ return '~' + sp(v) + ' ₸'; };
+
+function renderCalc(){
+  var week = rate * hours * days;
+  var month = Math.round(week * 4.33);
+  countUp(outWeek, week, fmtOut);
+  countUp(outMonth, month, fmtOut);
+}
+outWeek._v = 120000; outMonth._v = 519600;
+
+var tabs = document.getElementById('tabs');
+var tabInd = document.getElementById('tabInd');
+function positionTabInd(){
+  var a = tabs.querySelector('.tab.on');
+  if (!a) return;
+  tabInd.style.left = a.offsetLeft + 'px';
+  tabInd.style.top = a.offsetTop + 'px';
+  tabInd.style.width = a.offsetWidth + 'px';
+  tabInd.style.height = a.offsetHeight + 'px';
+}
+tabs.addEventListener('click', function(e){
+  var b = e.target.closest('.tab');
+  if (!b) return;
+  tabs.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+  b.classList.add('on'); b.setAttribute('aria-pressed','true');
+  rate = +b.getAttribute('data-rate');
+  positionTabInd();
+  renderCalc();
+});
+
+function slider(id, valId, cb){
+  var inp = document.getElementById(id), val = document.getElementById(valId);
+  function fill(){
+    var p = (inp.value - inp.min) / (inp.max - inp.min) * 100;
+    inp.style.setProperty('--p', p + '%');
+    val.textContent = inp.value;
+  }
+  inp.addEventListener('input', function(){ fill(); cb(+inp.value); });
+  fill();
+}
+slider('rHours', 'vHours', function(v){ hours = v; renderCalc(); });
+slider('rDays', 'vDays', function(v){ days = v; renderCalc(); });
+
+/* ============ FAQ accordion ============ */
+var faqItems = document.querySelectorAll('.faq-item');
+function faqSet(item, open){
+  var q = item.querySelector('.faq-q');
+  var inWrap = item.querySelector('.faq-a-in');
+  item.classList.toggle('open', open);
+  q.setAttribute('aria-expanded', open ? 'true' : 'false');
+  inWrap.style.maxHeight = open ? (inWrap.scrollHeight + 'px') : '0px';
+}
+function refreshOpenFaq(){
+  var open = document.querySelector('.faq-item.open');
+  if (open){ var w = open.querySelector('.faq-a-in'); w.style.maxHeight = w.scrollHeight + 'px'; }
+}
+faqItems.forEach(function(item, idx){
+  var q = item.querySelector('.faq-q');
+  var ans = item.querySelector('.faq-a');
+  var aid = 'faqA' + (idx + 1);
+  ans.id = aid;
+  q.setAttribute('aria-controls', aid);
+  q.addEventListener('click', function(){
+    var wasOpen = item.classList.contains('open');
+    faqItems.forEach(function(x){ if (x !== item) faqSet(x, false); });
+    faqSet(item, !wasOpen);
+    setTimeout(rebuildTrack, 400);
+  });
+});
+
+/* ============ GPS track ============ */
+var NS = 'http://www.w3.org/2000/svg';
+var trackSvg = document.getElementById('track');
+var trkBase = document.getElementById('trkBase');
+var trkDraw = document.getElementById('trkDraw');
+var trkCps = document.getElementById('trkCps');
+var trkDot = document.getElementById('trkDot');
+var trkLen = 0, samples = [];
+var litSections = [];
+
+function roundedPath(pts, r){
+  var d = 'M ' + pts[0][0] + ' ' + pts[0][1];
+  for (var i = 1; i < pts.length - 1; i++){
+    var x0 = pts[i-1][0], y0 = pts[i-1][1], x1 = pts[i][0], y1 = pts[i][1], x2 = pts[i+1][0], y2 = pts[i+1][1];
+    var d1 = Math.hypot(x1-x0, y1-y0), d2 = Math.hypot(x2-x1, y2-y1);
+    var r1 = Math.min(r, d1/2), r2 = Math.min(r, d2/2);
+    var ax = (x1 - (x1-x0)/d1*r1).toFixed(1), ay = (y1 - (y1-y0)/d1*r1).toFixed(1);
+    var bx = (x1 + (x2-x1)/d2*r2).toFixed(1), by = (y1 + (y2-y1)/d2*r2).toFixed(1);
+    d += ' L ' + ax + ' ' + ay + ' Q ' + x1 + ' ' + y1 + ' ' + bx + ' ' + by;
+  }
+  var last = pts[pts.length-1];
+  d += ' L ' + last[0] + ' ' + last[1];
+  return d;
+}
+
+function rebuildTrack(){
+  var docH = document.documentElement.scrollHeight;
+  var wrap = document.querySelector('#hero .wrap');
+  var wl = wrap.getBoundingClientRect().left;
+  var desk = window.innerWidth >= 900;
+  var laneX = Math.round(wl + (desk ? 46 : 12));
+  var amp = desk ? 22 : 7;
+  var W = Math.ceil(laneX + amp + 30);
+  trackSvg.setAttribute('width', W);
+  trackSvg.setAttribute('height', docH);
+  trackSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + docH);
+
+  var sy = window.pageYOffset;
+  var hero = document.getElementById('hero');
+  var hr = hero.getBoundingClientRect();
+  var heroBot = hr.top + sy + hr.height;
+  var secs = Array.prototype.slice.call(document.querySelectorAll('main > section')).slice(1);
+
+  var pts = [[laneX, 0], [laneX, Math.round(heroBot - 60)]];
+  var side = 1;
+  var cpData = [];
+  secs.forEach(function(s){
+    var r = s.getBoundingClientRect();
+    var top = r.top + sy, bot = top + r.height;
+    var x = laneX + side * amp;
+    pts.push([x, Math.round(top + 70)], [x, Math.round(Math.max(top + 130, bot - 70))]);
+    cpData.push({ sec: s, x: x, y: Math.round(top + 110) });
+    side = -side;
+  });
+  pts.push([laneX, docH - 4]);
+
+  var d = roundedPath(pts, desk ? 26 : 10);
+  trkBase.setAttribute('d', d);
+  trkDraw.setAttribute('d', d);
+  trkLen = trkDraw.getTotalLength();
+  trkDraw.style.strokeDasharray = trkLen + ' ' + trkLen;
+
+  samples = [];
+  var N = 240;
+  for (var i = 0; i <= N; i++){
+    var L = trkLen * i / N;
+    var p = trkDraw.getPointAtLength(L);
+    samples.push([p.y, L, p.x]);
+  }
+
+  while (trkCps.firstChild) trkCps.removeChild(trkCps.firstChild);
+  var start = document.createElementNS(NS, 'circle');
+  start.setAttribute('cx', laneX); start.setAttribute('cy', 120);
+  start.setAttribute('r', desk ? 5 : 4);
+  start.setAttribute('class', 'cp on');
+  trkCps.appendChild(start);
+  cpData.forEach(function(c){
+    var el = document.createElementNS(NS, 'circle');
+    el.setAttribute('cx', c.x); el.setAttribute('cy', c.y);
+    el.setAttribute('r', desk ? 5 : 4);
+    el.setAttribute('class', 'cp' + (litSections.indexOf(c.sec) !== -1 ? ' on' : ''));
+    c.sec._cpEl = el;
+    trkCps.appendChild(el);
+  });
+
+  updateTrack();
+}
+
+function updateTrack(){
+  if (!trkLen) return;
+  if (RM){
+    trkDraw.style.strokeDashoffset = 0;
+    trkDot.style.display = 'none';
+    return;
+  }
+  var maxY = samples[samples.length - 1][0];
+  var y = Math.max(1, Math.min(maxY, window.pageYOffset + window.innerHeight * 0.45));
+  var lo = 0, hi = samples.length - 1;
+  while (lo < hi){ var m = (lo + hi) >> 1; if (samples[m][0] < y) lo = m + 1; else hi = m; }
+  var s1 = samples[Math.max(0, lo - 1)], s2 = samples[lo];
+  var f = (s2[0] === s1[0]) ? 0 : (y - s1[0]) / (s2[0] - s1[0]);
+  var len = s1[1] + (s2[1] - s1[1]) * f;
+  var x = s1[2] + (s2[2] - s1[2]) * f;
+  trkDraw.style.strokeDashoffset = Math.max(0, trkLen - len);
+  trkDot.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ')');
+}
+
+var scrollTick = false;
+window.addEventListener('scroll', function(){
+  if (!scrollTick){
+    scrollTick = true;
+    requestAnimationFrame(function(){ updateTrack(); scrollTick = false; });
+  }
+}, { passive: true });
+
+var cpIO = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if (en.isIntersecting){
+      if (litSections.indexOf(en.target) === -1) litSections.push(en.target);
+      if (en.target._cpEl) en.target._cpEl.classList.add('on');
+      cpIO.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.15 });
+Array.prototype.slice.call(document.querySelectorAll('main > section')).slice(1).forEach(function(s){ cpIO.observe(s); });
+
+/* ============ scroll reveal ============ */
+var revEls = document.querySelectorAll('.rev');
+if (RM){
+  revEls.forEach(function(el){ el.classList.add('in'); });
+} else {
+  var revIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){ en.target.classList.add('in'); revIO.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  revEls.forEach(function(el){ revIO.observe(el); });
+}
+
+/* ============ hero CTA + sticky CTA ============ */
+var actionSec = document.getElementById('action');
+var heroSec = document.getElementById('hero');
+function goAction(){ actionSec.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' }); }
+document.getElementById('heroCta').addEventListener('click', goAction);
+var refCta = document.getElementById('refCta');
+if (refCta) refCta.addEventListener('click', goAction);
+
+var sticky = document.getElementById('sticky');
+sticky.addEventListener('click', goAction);
+var heroVis = true, actVis = false;
+var stickyIO = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if (en.target === heroSec) heroVis = en.isIntersecting;
+    if (en.target === actionSec) actVis = en.isIntersecting;
+  });
+  sticky.classList.toggle('show', !heroVis && !actVis);
+}, { threshold: 0.05 });
+stickyIO.observe(heroSec);
+stickyIO.observe(actionSec);
+
+/* ============ referral growing network ============ */
+(function(){
+  var svg = document.getElementById('net');
+  if (!svg) return;
+  var linksG = document.getElementById('netLinks');
+  var nodesG = document.getElementById('netNodes');
+  var NODES = [
+    { x: 40, y: 120, root: true },
+    { x: 150, y: 58 }, { x: 150, y: 182 },
+    { x: 262, y: 26 }, { x: 262, y: 92 }, { x: 262, y: 150 }, { x: 262, y: 214 }
+  ];
+  var LINKS = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]];
+  var WAVES = [[0],[1,2],[3,4,5,6]];
+  var R = 19;
+  var nodeEls = [], linkEls = [];
+
+  LINKS.forEach(function(pair){
+    var a = NODES[pair[0]], b = NODES[pair[1]];
+    var ln = document.createElementNS(NS, 'line');
+    ln.setAttribute('x1', a.x); ln.setAttribute('y1', a.y);
+    ln.setAttribute('x2', b.x); ln.setAttribute('y2', b.y);
+    ln.setAttribute('class', 'net-link');
+    var len = Math.hypot(b.x - a.x, b.y - a.y);
+    ln.style.strokeDasharray = len;
+    ln.style.strokeDashoffset = len;
+    ln._len = len;
+    linksG.appendChild(ln);
+    linkEls.push(ln);
+  });
+
+  NODES.forEach(function(n){
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'net-node' + (n.root ? ' nroot' : ''));
+    var bg = document.createElementNS(NS, 'circle');
+    bg.setAttribute('cx', n.x); bg.setAttribute('cy', n.y); bg.setAttribute('r', R);
+    bg.setAttribute('class', 'nbg');
+    var head = document.createElementNS(NS, 'circle');
+    head.setAttribute('cx', n.x); head.setAttribute('cy', n.y - 4); head.setAttribute('r', 5);
+    head.setAttribute('class', 'nfig');
+    var body = document.createElementNS(NS, 'path');
+    body.setAttribute('d', 'M' + (n.x - 10) + ' ' + (n.y + 13) + ' A10 9 0 0 0 ' + (n.x + 10) + ' ' + (n.y + 13) + ' Z');
+    body.setAttribute('class', 'nfig');
+    g.appendChild(bg); g.appendChild(head); g.appendChild(body);
+    nodesG.appendChild(g);
+    nodeEls.push(g);
+  });
+
+  var netTimer = null, loopId = 0;
+  function netReset(){
+    nodeEls.forEach(function(g){ g.classList.remove('on','pulse'); });
+    linkEls.forEach(function(l){ l.classList.remove('on'); l.style.strokeDashoffset = l._len; });
+  }
+  function playNet(){
+    var myId = ++loopId;
+    if (netTimer) clearTimeout(netTimer);
+    netReset();
+    var w = 0;
+    (function nextWave(){
+      if (myId !== loopId) return;
+      if (w >= WAVES.length){ afterGrown(myId); return; }
+      WAVES[w].forEach(function(ni, k){
+        setTimeout(function(){
+          if (myId !== loopId) return;
+          var g = nodeEls[ni];
+          g.classList.add('on','pulse');
+          if (ni > 0){ var l = linkEls[ni - 1]; l.classList.add('on'); l.style.strokeDashoffset = 0; }
+          setTimeout(function(){ g.classList.remove('pulse'); }, 720);
+        }, k * 80);
+      });
+      w++;
+      netTimer = setTimeout(nextWave, 640);
+    })();
+  }
+  function afterGrown(myId){
+    if (!(DESK && !RM)) return;
+    netTimer = setTimeout(function(){
+      if (myId !== loopId) return;
+      netReset();
+      netTimer = setTimeout(function(){ if (myId === loopId) playNet(); }, 620);
+    }, 1900);
+  }
+
+  if (RM){
+    nodeEls.forEach(function(g){ g.classList.add('on'); });
+    linkEls.forEach(function(l){ l.classList.add('on'); l.style.strokeDashoffset = 0; });
+  } else {
+    var netIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          if (!DESK) netIO.unobserve(en.target); // mobile: play once, uninterruptible
+          playNet();
+        } else if (DESK){
+          loopId++;                              // desktop: pause loop off-screen
+          if (netTimer) clearTimeout(netTimer);
+        }
+      });
+    }, { threshold: 0.25 });
+    netIO.observe(svg);
+  }
+})();
+
+/* ============ desktop-only FX (kill-switch: not initialized on mobile) ============ */
+function initCursor(){
+  document.documentElement.classList.add('fx-cursor');
+  var cur = document.createElement('div'); cur.id = 'cur'; cur.innerHTML = '<i></i><u></u>';
+  var glow = document.createElement('div'); glow.id = 'curGlow'; glow.innerHTML = '<i></i>';
+  document.body.appendChild(glow);
+  document.body.appendChild(cur);
+  var mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my;
+  window.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    cur.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+  }, { passive: true });
+  (function loop(){
+    gx += (mx - gx) * 0.16; gy += (my - gy) * 0.16;
+    glow.style.transform = 'translate(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px)';
+    requestAnimationFrame(loop);
+  })();
+  document.addEventListener('mouseover', function(e){
+    cur.classList.toggle('aim', !!(e.target.closest && e.target.closest('a,button,input,.faq-q,.tab')));
+  }, { passive: true });
+}
+
+function initSpark(){
+  document.addEventListener('pointerdown', function(e){
+    if (e.pointerType !== 'mouse') return;
+    var box = document.createElement('div');
+    box.className = 'spark';
+    box.style.left = e.clientX + 'px';
+    box.style.top = e.clientY + 'px';
+    for (var i = 0; i < 8; i++){
+      var s = document.createElement('i');
+      var a = (Math.PI * 2 / 8) * i + Math.random() * 0.6;
+      var dist = 26 + Math.random() * 30;
+      s.style.setProperty('--dx', (Math.cos(a) * dist).toFixed(0) + 'px');
+      s.style.setProperty('--dy', (Math.sin(a) * dist).toFixed(0) + 'px');
+      box.appendChild(s);
+    }
+    document.body.appendChild(box);
+    setTimeout(function(){ box.remove(); }, 550);
+  }, { passive: true });
+}
+
+function initSpotlight(){
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
+  });
+}
+
+function initParticles(){
+  var hero = document.getElementById('hero');
+  for (var i = 0; i < 13; i++){
+    var p = document.createElement('span');
+    p.className = 'pcl';
+    var size = 2 + Math.random() * 3;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.top = (25 + Math.random() * 70) + '%';
+    p.style.animationDuration = (7 + Math.random() * 9) + 's';
+    p.style.animationDelay = (-Math.random() * 10) + 's';
+    hero.appendChild(p);
+  }
+}
+
+if (DESK && !RM){
+  initCursor();
+  initSpark();
+  initSpotlight();
+  initParticles();
+}
+
+/* ============ init ============ */
+setLang(lang);
+
+var heroNum = document.getElementById('heroNum');
+heroNum._v = 0;
+requestAnimationFrame(function(){
+  requestAnimationFrame(function(){
+    document.body.classList.add('loaded');
+    positionTabInd();
+    rebuildTrack();
+  });
+});
+setTimeout(function(){ countUp(heroNum, 25000, sp, 900); }, RM ? 0 : 500);
+
+window.addEventListener('load', function(){ positionTabInd(); rebuildTrack(); });
+
+var rszT = null;
+window.addEventListener('resize', function(){
+  clearTimeout(rszT);
+  rszT = setTimeout(function(){ positionTabInd(); refreshOpenFaq(); rebuildTrack(); }, 180);
+});
+
+})();
+</script>
+</body>
+</html>
