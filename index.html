@@ -381,10 +381,10 @@ html.fx-cursor,html.fx-cursor *{cursor:none!important}
       <div class="rev" style="--d:.05s">
         <div class="tabs" id="tabs">
           <span class="tab-ind" id="tabInd"></span>
-          <button type="button" class="tab on" data-rate="2500" aria-pressed="true"><b data-i18n="tab2">Электровело</b><em data-i18n="rate2">2 500 ₸/ч</em></button>
-          <button type="button" class="tab" data-rate="4000" aria-pressed="false"><b data-i18n="tab4">Мото</b><em data-i18n="rate4">4 000 ₸/ч</em></button>
-          <button type="button" class="tab" data-rate="3500" aria-pressed="false"><b data-i18n="tab3">Авто</b><em data-i18n="rate3">3 500 ₸/ч</em></button>
-          <button type="button" class="tab" data-rate="1500" aria-pressed="false"><b data-i18n="tab1">Пеший / Вело</b><em data-i18n="rate1">1 500 ₸/ч</em></button>
+          <button type="button" class="tab on" data-rate="2200" aria-pressed="true"><b data-i18n="tab2">Электровело</b><em data-i18n="rate2">2 200 ₸/ч</em></button>
+          <button type="button" class="tab" data-rate="2600" aria-pressed="false"><b data-i18n="tab4">Мото</b><em data-i18n="rate4">2 600 ₸/ч</em></button>
+          <button type="button" class="tab" data-rate="2650" aria-pressed="false"><b data-i18n="tab3">Авто</b><em data-i18n="rate3">2 650 ₸/ч</em></button>
+          <button type="button" class="tab" data-rate="1650" aria-pressed="false"><b data-i18n="tab1">Пеший / Вело</b><em data-i18n="rate1">1 650 ₸/ч</em></button>
         </div>
         <div class="ctl">
           <div class="ctl-top"><span data-i18n="lHours">Часов в день</span><b><span id="vHours">8</span> <span data-i18n="uH">ч</span></b></div>
@@ -398,11 +398,11 @@ html.fx-cursor,html.fx-cursor *{cursor:none!important}
       <div class="out rev" style="--d:.12s">
         <div class="out-row">
           <span class="out-l" data-i18n="outW">В неделю:</span>
-          <span class="out-v shiny" id="outWeek">~120 000 ₸</span>
+          <span class="out-v shiny" id="outWeek">~105 600 ₸</span>
         </div>
         <div class="out-row">
           <span class="out-l" data-i18n="outM">В месяц:</span>
-          <span class="out-v shiny" id="outMonth">~519 600 ₸</span>
+          <span class="out-v shiny" id="outMonth">~457 248 ₸</span>
         </div>
       </div>
     </div>
@@ -627,7 +627,7 @@ var t = {
     cWarn:'⏳ Акция до конца 2026 года, мест ограничено. Сроки могут измениться.', cLink:'Официальные условия Яндекс Про →',
     calcTitle:'Посчитай свой доход',
     tab1:'Пеший / Вело', tab2:'Электровело', tab3:'Авто', tab4:'Мото',
-    rate1:'1 500 ₸/ч', rate2:'2 500 ₸/ч', rate3:'3 500 ₸/ч', rate4:'4 000 ₸/ч',
+    rate1:'1 650 ₸/ч', rate2:'2 200 ₸/ч', rate3:'2 650 ₸/ч', rate4:'2 600 ₸/ч',
     lHours:'Часов в день', lDays:'Дней в неделю', uH:'ч', uD:'дн',
     outW:'В неделю:', outM:'В месяц:',
     calcNote:'Ребята на электровелах и мото по всему Казахстану спокойно делают эти цифры. Всё зависит только от твоего желания.',
@@ -703,7 +703,7 @@ var t = {
     cWarn:'⏳ Акция 2026 жылдың соңына дейін, орын шектеулі. Мерзімдер өзгеруі мүмкін.', cLink:'Яндекс Про ресми шарттары →',
     calcTitle:'Табысыңды есепте',
     tab1:'Жаяу / Велик', tab2:'Электр велик', tab3:'Автокөлік', tab4:'Мото',
-    rate1:'1 500 ₸/сағ', rate2:'2 500 ₸/сағ', rate3:'3 500 ₸/сағ', rate4:'4 000 ₸/сағ',
+    rate1:'1 650 ₸/сағ', rate2:'2 200 ₸/сағ', rate3:'2 650 ₸/сағ', rate4:'2 600 ₸/сағ',
     lHours:'Күніне сағат', lDays:'Аптасына күн', uH:'сағ', uD:'күн',
     outW:'Аптасына:', outM:'Айына:',
     calcNote:'Қазақстан бойынша электр велик пен мото мінген пацандар бұл цифрларды оңай жасайды. Бәрі тек өз қалауыңа байланысты.',
@@ -804,7 +804,7 @@ function countUp(el, to, fmt, dur){
 }
 
 /* ============ calculator ============ */
-var rate = 2500, hours = 8, days = 6;
+var rate = 2200, hours = 8, days = 6;
 var outWeek = document.getElementById('outWeek');
 var outMonth = document.getElementById('outMonth');
 var fmtOut = function(v){ return '~' + sp(v) + ' ₸'; };
